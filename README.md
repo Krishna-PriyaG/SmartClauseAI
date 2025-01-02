@@ -27,32 +27,32 @@ docker-compose up
 - **Deploy the UI.**
 All local for now
 
-3. **Access the Application**
-- [Chatbot (UI)](http://localhost:8000)
-- [Rasa Server](http://localhost:5005)
-- [Action Server](http://localhost:5055)
+## Access the Application
+- Chatbot (UI) [http://localhost:8000](http://localhost:8000)
+- Rasa Server [http://localhost:5005](http://localhost:5005)
+- Action Server [http://localhost:5055](http://localhost:5055)
 
-4. **Usage**
+## Usage
 Interact with the Bot
 Open the UI at http://localhost:8000 to interact with the bot.
 Alternatively, use the Rasa shell for direct interaction:
 ```bash
 docker exec -it <container_id> rasa shell
 ```
-5. **Supported Features**
+## Supported Features
 - Retrieve relevant clauses from the CUAD dataset.
 - Generate new clauses tailored to specific legal scenarios.
 
-6. **Project Structure**
-- actions/: Contains custom actions for retrieval and generation logic.
-- data/: Training data for the Rasa bot.
-- models/: Pre-trained and generated models for Rasa and clause generation.
-- config.yml: Configuration for the Rasa bot pipeline and policies.
-- domain.yml: Rasa bot domain definition.
-- docker-compose.yml: Docker configuration for containerized deployment.
-- ui/: Contains frontend assets for the chatbot interface.
+## Project Structure
+- **actions/**: Contains custom actions for retrieval and generation logic.
+- **data/**: Training data for the Rasa bot.
+- **models/**: Pre-trained and generated models for Rasa and clause generation.
+- **config.yml**: Configuration for the Rasa bot pipeline and policies.
+- **domain.yml**: Rasa bot domain definition.
+- **docker-compose.yml**: Docker configuration for containerized deployment.
+- **ui/**: Contains frontend assets for the chatbot interface.
 
-7. **Technologies Used**
+## Technologies Used
 - **Rasa**: Open-source conversational AI framework.
 - **CUAD Dataset**: Contract Understanding Atticus Dataset for legal clause retrieval.
 - **GPT-3.5 Turbo**: For generating context-aware legal clauses.
@@ -60,5 +60,5 @@ docker exec -it <container_id> rasa shell
 - **Docker**: For fully automated and containerized deployment.
 - **Python**: Programming language for backend logic.
 
-**Contributions**
+## Contributions
 Contributions are welcome! Please open an issue or submit a pull request.
