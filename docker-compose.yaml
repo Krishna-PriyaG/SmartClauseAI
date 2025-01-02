@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  rasa-train:
+    image: rasa/rasa:latest
+    volumes:
+      - .:/app
+    command: train
+
+  rasa:
+    image: rasa/rasa:latest
+    ports:
+      - "5005:5005"
+    volumes:
+      - .:/app
+    command: run --enable-api --cors "*" --model /app/models
+    depends_on:
+      - rasa-train
+
+  action-server:
+    build:
+      context: .
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./actions:/app/actions
+    environment:
+      - OPENAI_API_KEY=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
+    command: start --actions actions
+    depends_on:
+      - rasa-train
+
+  ui:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - ./ui:/usr/share/nginx/html:ro
+    depends_on:
+      - rasa
